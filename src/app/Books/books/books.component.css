@@ -1,0 +1,70 @@
+/* Stylizacja tabeli */
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Stylizacja nagłówka tabeli */
+  th {
+    background-color: #f2f2f2;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Stylizacja wierszy tabeli */
+  tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Stylizacja rekordów */
+  tr:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
+  
+  /* Stylizacja przycisku edycji */
+  button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Stylizacja formularza edycji */
+  form {
+    margin-top: 20px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  /* Ograniczenie szerokości inputów w formularzu */
+  form input[type="text"],
+  form input[type="number"] {
+    width: 200px; /* Ustaw własną preferowaną szerokość */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  form button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  

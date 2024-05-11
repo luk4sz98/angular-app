@@ -1,0 +1,23 @@
+<!-- book.component.html -->
+<div *ngIf="isEditFormVisible">
+    <h2>Edycja książki</h2>
+    <form (submit)="saveEdit()">
+        <label>
+            Tytuł:
+            <input type="text" [(ngModel)]="editedBook.title" name="title" required>
+        </label>
+        <label>
+            Rok wydania:
+            <input type="number" [(ngModel)]="editedBook.year" name="year" required>
+        </label>
+        <label>
+            Autor:
+            <input type="text" [(ngModel)]="editedBook.author" name="author" required>
+        </label>
+        <label>
+            Cena:
+            <input type="number" [(ngModel)]="editedBook.price" name="price" required>
+        </label>
+        <button type="submit">Zapisz zmiany</button>
+    </form>
+</div>

@@ -1,0 +1,45 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tytuł</th>
+            <th>Rok wydania</th>
+            <th>Autor</th>
+            <th>Cena</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books" (click)="startEdit(book)">
+            <td>{{ book.id }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.year }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.price | currency:'PLN':'symbol':'1.2-2' }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="isEditFormVisible && editedBook">
+    <h2>Edycja książki</h2>
+    <form (submit)="saveEdit()">
+        <label>
+            Tytuł:
+            <input type="text" [(ngModel)]="editedBook.title" name="title" required>
+        </label>
+        <label>
+            Rok wydania:
+            <input type="number" [(ngModel)]="editedBook.year" name="year" required>
+        </label>
+        <label>
+            Autor:
+            <input type="text" [(ngModel)]="editedBook.author" name="author" required>
+        </label>
+        <label>
+            Cena:
+            <input type="number" [(ngModel)]="editedBook.price" name="price" required>
+        </label>
+        <button type="submit">Zapisz zmiany</button>
+    </form>
+</div>
+
+<router-outlet></router-outlet>
