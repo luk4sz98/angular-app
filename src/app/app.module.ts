@@ -8,6 +8,7 @@ import { QuoteComponent } from './Quote/quote/quote.component';
 import { BooksComponent } from './Books/books/books.component';
 import { FormsModule } from '@angular/forms';
 import { BookComponent } from './Books/book/book.component';
+import { FooterComponent } from './Shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { BookComponent } from './Books/book/book.component';
     HomeComponent,
     QuoteComponent,
     BooksComponent,
-    BookComponent
+    BookComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
