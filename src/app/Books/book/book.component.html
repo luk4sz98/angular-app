@@ -1,5 +1,4 @@
-<!-- book.component.html -->
-<div *ngIf="isEditFormVisible">
+<div *ngIf="isEditFormVisible && editedBook">
     <h2>Edycja książki</h2>
     <form (submit)="saveEdit()">
         <label>
