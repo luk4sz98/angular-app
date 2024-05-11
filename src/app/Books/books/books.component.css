@@ -29,3 +29,8 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.selected {
+  background-color: #cfd8dc !important;
+  color: rgb(32, 32, 32);
+}

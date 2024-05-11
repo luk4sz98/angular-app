@@ -1,27 +1,28 @@
 <table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Tytuł</th>
-            <th>Rok wydania</th>
-            <th>Autor</th>
-            <th>Cena</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let book of books" (click)="startEdit(book)">
-            <td>{{ book.id }}</td>
-            <td>{{ book.title }}</td>
-            <td>{{ book.year }}</td>
-            <td>{{ book.author }}</td>
-            <td>{{ book.price | currency:'PLN':'symbol':'1.2-2' }}</td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tytuł</th>
+      <th>Rok wydania</th>
+      <th>Autor</th>
+      <th>Cena</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let book of books"
+      (click)="startEdit(book)"
+      [class.selected]="isSelected(book)"
+    >
+      <td>{{ book.id }}</td>
+      <td>{{ book.title }}</td>
+      <td>{{ book.year }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.price | currency : "PLN" : "symbol" : "1.2-2" }}</td>
+    </tr>
+  </tbody>
 </table>
-<app-book 
-    [editedBook]="editedBook" 
-    [isEditFormVisible]="isEditFormVisible"  
-    *ngIf="isEditFormVisible" 
-    (editFinished)="onEditFinished($event)"></app-book>
+<app-book [editedBook]="editedBook" (editFinished)="onEditFinished($event)">
+</app-book>
 
 <router-outlet></router-outlet>

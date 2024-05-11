@@ -10,32 +10,27 @@ import { ToastrService } from "ngx-toastr";
 })
 export class BookComponent {
   @Input() editedBook!: Book | null;
-  @Input() isEditFormVisible!: boolean;
 
   @Output() editFinished: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
-    private bookService: BookService, 
-    private toastr: ToastrService) { }
-
-  startEdit(book: Book) {
-    this.editedBook = book;
-  }
+    private bookService: BookService,
+    private toastr: ToastrService
+  ) {}
 
   saveEdit() {
     const result = this.bookService.editBook(this.editedBook!);
     if (result) {
-      this.toastr.success('Zaaktualizowano książkę!', 'Sukces', {
-        timeOut: 3000
+      this.toastr.success("Zaaktualizowano książkę!", "Sukces", {
+        timeOut: 3000,
       });
       this.editFinished.emit(true);
     } else {
-      this.toastr.error('Wystąpił błąd podczas aktualizacji książki!', 'Błąd', {
-        timeOut: 3000
+      this.toastr.error("Wystąpił błąd podczas aktualizacji książki!", "Błąd", {
+        timeOut: 3000,
       });
       this.editFinished.emit(false);
     }
     this.editedBook = null;
-    this.isEditFormVisible = false;
   }
 }

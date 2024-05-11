@@ -10,29 +10,25 @@ import { BookService } from '../../Services/bookService';
 export class BooksComponent {
   books!: Book[];
   editedBook!: Book | null;
-  isEditFormVisible: boolean = false;
 
   constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
-    this.getBooks();
-  }
-
-  getBooks(): void {
     this.bookService.getBooks()
-      .subscribe(books => this.books = books);
+    .subscribe(books => this.books = books);
   }
 
   startEdit(book: Book) {
-    this.editedBook = book;
-    this.isEditFormVisible = true;
+    this.editedBook = Object.assign({}, book);
+  }
+
+  isSelected(book: Book) {
+    return this.editedBook?.id === book.id;
   }
 
   onEditFinished(event: boolean) {
     if (event) {
-      console.log('chuj')
       this.editedBook = null;
-      this.isEditFormVisible = false;
     }
   }
 }
