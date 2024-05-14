@@ -1,0 +1,12 @@
+.user-details {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.user-details form {
+  margin-bottom: 20px;
+}
+
+.user-details button {
+  margin-right: 10px;
+}

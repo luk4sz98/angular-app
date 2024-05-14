@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Book } from '../../Models/book';
 import { BookService } from '../../Services/bookService';
 
@@ -7,7 +7,7 @@ import { BookService } from '../../Services/bookService';
   templateUrl: './books.component.html',
   styleUrl: './books.component.css'
 })
-export class BooksComponent {
+export class BooksComponent implements OnInit {
   books!: Book[];
   editedBook!: Book | null;
 

@@ -1,0 +1,47 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="user-form">
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Imię</mat-label>
+    <input matInput formControlName="name" placeholder="Wpisz imię" />
+    <mat-error
+      *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched"
+    >
+      Imię jest wymagane
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Miasto</mat-label>
+    <input matInput formControlName="city" placeholder="Wpisz miasto" />
+    <mat-error
+      *ngIf="userForm.get('city')?.invalid && userForm.get('city')?.touched"
+    >
+      Miasto jest wymagane
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Data urodzenia</mat-label>
+    <input
+      matInput
+      formControlName="dateOfBirth"
+      placeholder="Wybierz datę urodzenia"
+      [matDatepicker]="picker"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error
+      *ngIf="
+        userForm.get('dateOfBirth')?.invalid &&
+        userForm.get('dateOfBirth')?.touched
+      "
+    >
+      Data urodzenia jest wymagana
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" class="submit-button">
+    Dodaj użytkownika
+  </button>
+</form>
+
+<router-outlet></router-outlet>

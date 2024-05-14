@@ -1,0 +1,32 @@
+<div class="user-details">
+  <h2>Edycja użytkownika</h2>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Imię</mat-label>
+      <input matInput formControlName="name" placeholder="Wpisz imię" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Miasto</mat-label>
+      <input matInput formControlName="city" placeholder="Wpisz miasto" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Data urodzenia</mat-label>
+      <input
+        matInput
+        formControlName="dateOfBirth"
+        placeholder="Wybierz datę urodzenia"
+        [matDatepicker]="picker"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">
+      Zapisz zmiany
+    </button>
+  </form>
+  <button mat-raised-button color="warn" (click)="deleteUser()">
+    Usuń użytkownika
+  </button>
+</div>
+
+<router-outlet></router-outlet>

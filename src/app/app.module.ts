@@ -6,11 +6,23 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { QuoteComponent } from './Quote/quote/quote.component';
 import { BooksComponent } from './Books/books/books.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BookComponent } from './Books/book/book.component';
 import { FooterComponent } from './Shared/footer/footer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserListComponent } from './Users/user-list/user-list.component';
+import { UserDetailedComponent } from './Users/user-detailed/user-detailed.component';
+import { MatTableModule } from '@angular/material/table';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule } from '@angular/material/input';
+import { UserAddComponent } from './Users/user-add/user-add.component';
+import { MatButtonModule } from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -19,7 +31,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     QuoteComponent,
     BooksComponent,
     BookComponent,
-    FooterComponent
+    FooterComponent,
+    UserListComponent,
+    UserDetailedComponent,
+    UserAddComponent
   ],
   imports: [
     BrowserModule,
@@ -27,9 +42,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatTableModule,
+    HttpClientModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
