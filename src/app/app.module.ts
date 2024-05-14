@@ -23,6 +23,8 @@ import { UserAddComponent } from './Users/user-add/user-add.component';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { UserEditComponent } from './Users/user-edit/user-edit.component';
+import { UserPostsComponent } from './Users/user-posts/user-posts.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     FooterComponent,
     UserListComponent,
     UserDetailedComponent,
-    UserAddComponent
+    UserAddComponent,
+    UserEditComponent,
+    UserPostsComponent
   ],
   imports: [
     BrowserModule,

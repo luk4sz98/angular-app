@@ -33,6 +33,6 @@ export class ApiService {
   }
 
   getPostsByUserId(userId: number): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.apiUrl}/posts?userId=${userId}`);
+    return this.http.get<Post[]>(`${this.apiUrl}/users/${userId}/posts`);
   }
 }
