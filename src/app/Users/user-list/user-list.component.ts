@@ -14,6 +14,8 @@ export class UserListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'city', 'dateOfBirth', 'createdAt'];
   dataSource!: MatTableDataSource<User>;
   selectedRowIndex: number = -1;
+  oldestUser: User | undefined;
+  youngestUser: User | undefined;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -29,6 +31,7 @@ export class UserListComponent implements OnInit {
       this.dataSource = new MatTableDataSource(users);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.findExtremeUsers(users);
     });
   }
 
@@ -39,5 +42,17 @@ export class UserListComponent implements OnInit {
 
   selectRow(index: number) {
     this.selectedRowIndex = index;
+  }
+
+  findExtremeUsers(users: User[]): void {
+    if (users.length > 0) {
+      this.oldestUser = users.reduce((oldest, current) => {
+        return (new Date(current.dateOfBirth) < new Date(oldest.dateOfBirth)) ? current : oldest;
+      });
+
+      this.youngestUser = users.reduce((youngest, current) => {
+        return (new Date(current.dateOfBirth) > new Date(youngest.dateOfBirth)) ? current : youngest;
+      });
+    }
   }
 }

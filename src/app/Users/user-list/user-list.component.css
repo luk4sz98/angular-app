@@ -16,3 +16,20 @@
   background-color: rgb(170, 170, 170);
   cursor: pointer;
 }
+
+.extreme-users-info {
+  margin-top: 20px;
+}
+
+.extreme-user {
+  margin-bottom: 10px;
+}
+
+.extreme-user-name {
+  font-weight: bold;
+}
+
+.extreme-user-details {
+  margin-left: 10px;
+  color: #555;
+}

@@ -33,4 +33,16 @@
 <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
 <button mat-raised-button color="primary" routerLink="/users/add">Dodaj użytkownika</button>
 
+<br>
+<div class="extreme-users-info" *ngIf="oldestUser && youngestUser">
+  <div class="extreme-user">
+    <span class="extreme-user-name">Najstarszy użytkownik:</span>
+    <span class="extreme-user-details">{{ oldestUser.name }} (Data urodzenia: {{ oldestUser.dateOfBirth | date }})</span>
+  </div>
+  <div class="extreme-user">
+    <span class="extreme-user-name">Najmłodszy użytkownik:</span>
+    <span class="extreme-user-details">{{ youngestUser.name }} (Data urodzenia: {{ youngestUser.dateOfBirth | date }})</span>
+  </div>
+</div>
+
 <router-outlet></router-outlet>
